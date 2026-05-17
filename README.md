@@ -7,3 +7,8 @@ Il sistema funge da middleware intelligente tra il frontend (Next.js) e le API u
 L'obiettivo principale è permettere agli utenti di monitorare gli asteroidi che si avvicinano al nostro pianeta, fornendo dettagli tecnici e avvisi di potenziale pericolosità.
 
 I file README.md del frontend e del backend sono individuabili nella cartella rispettivamente.
+
+## Endpoint
+`https://nasa-neo-challenge.up.railway.app/api/v1/asteroids?startDate=2026-03-01&endDate=2026-03-05`
+
+`https://nasa-neo-challenge.up.railway.app/api/v1/asteroids/{id}`

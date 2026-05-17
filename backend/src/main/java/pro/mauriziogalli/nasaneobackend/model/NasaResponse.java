@@ -1,5 +1,6 @@
 package pro.mauriziogalli.nasaneobackend.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ import java.util.Map;
 @Data
 public class NasaResponse {
 
-    @JsonProperty("near_earth_objects")
+    @JsonProperty("nearEarthObjects")
+    @JsonAlias("near_earth_objects")
     private Map<String, List<Asteroid>> nearEarthObjects;
 }

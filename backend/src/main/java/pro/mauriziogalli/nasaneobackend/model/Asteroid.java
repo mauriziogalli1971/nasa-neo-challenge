@@ -2,6 +2,7 @@ package pro.mauriziogalli.nasaneobackend.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import pro.mauriziogalli.nasaneobackend.model.asteroid.CloseApproachDatum;
@@ -21,30 +22,39 @@ import java.io.Serializable;
 public class Asteroid implements Serializable {
 
     @JsonProperty("id")
+    @JsonAlias("id")
     private String id;
 
-    @JsonProperty("neo_reference_id")
+    @JsonProperty("neoReferenceId")
+    @JsonAlias("neo_reference_id")
     private String neoReferenceId;
 
     @JsonProperty("name")
+    @JsonAlias("name")
     private String name;
 
-    @JsonProperty("nasa_jpl_url")
+    @JsonProperty("nasaJplUrl")
+    @JsonAlias("nasa_jpl_url")
     private String nasaJplUrl;
 
-    @JsonProperty("absolute_magnitude_h")
+    @JsonProperty("absoluteMagnitudeH")
+    @JsonAlias("absolute_magnitude_h")
     private double absoluteMagnitude;
 
-    @JsonProperty("estimated_diameter")
+    @JsonProperty("estimatedDiameter")
+    @JsonAlias("estimated_diameter")
     private EstimatedDiameter estimatedDiameter;
 
-    @JsonProperty("is_potentially_hazardous_asteroid")
+    @JsonProperty("isPotentiallyHazardous")
+    @JsonAlias("is_potentially_hazardous_asteroid")
     private boolean isPotentiallyHazardous;
 
-    @JsonProperty("close_approach_data")
+    @JsonProperty("closeApproachData")
+    @JsonAlias("close_approach_data")
     private List<CloseApproachDatum> closeApproachData;
 
-    @JsonProperty("is_sentry_object")
+    @JsonProperty("isSentryObject")
+    @JsonAlias("is_sentry_object")
     private boolean isSentryObject;
 }
 

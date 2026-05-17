@@ -18,6 +18,7 @@ import pro.mauriziogalli.nasaneobackend.model.NasaResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -89,7 +90,15 @@ public class NasaService {
             chunkIndex++;
         }
 
-        return allAsteroids;
+        return allAsteroids.stream()
+                .sorted(Comparator
+                        // 1. Ordina per data di approccio (ASC)
+                        .comparing((Asteroid a) -> a.getCloseApproachData().getFirst().getCloseApproachDate())
+                        // 2. A parità di data, i pericolosi prima (true > false)
+                        // In Java, true è considerato "maggiore" di false, quindi usiamo reversed() per avere true prima.
+                        .thenComparing(Asteroid::isPotentiallyHazardous, Comparator.reverseOrder())
+                )
+                .toList();
     }
 
     /**
@@ -161,4 +170,5 @@ public class NasaService {
                     "La data di " + label + " non è valida: " + dateStr);
         }
     }
+
 }
